@@ -1,4 +1,4 @@
-//1. INTRODUCTION TO JAVASCRIPT
+/*//1. INTRODUCTION TO JAVASCRIPT
 //Task 1
 const secMinute = 60;
 const secH = secMinute * 60;
@@ -35,35 +35,33 @@ const validateAge = age => {
   } else {
     console.log ("You are too young");
   }
-}
+}*/
 //Task 2
-const filterMostOftenNumber = numsArr => {
-  // Create an object to store the frequency of each number
-  const numFrequency = {};
-
-  // Calculate the frequency of each number
-  numsArr.forEach(num => {
-    numFrequency[num] = (numFrequency[num] || 0) + 1;
-  });
-
-  // Find the most often included number and its frequency
-  let mostCommonNumber;
-  let maxFrequency = 0;
-
-  for (const num in numFrequency) {
-    if (numFrequency[num] > maxFrequency) {
-      mostCommonNumber = num;
-      maxFrequency = numFrequency[num];
-    }
+numbers = [4, 5, 2, 1, 6, 5, 3, 5, 2, 5];
+const sorted = numbers.sort((a,b) => a-b);
+let res = sorted.filter ((x,i) => x === sorted [i+1]);
+const occurrences = res.reduce((countDictionary, currentValue) => {
+  if (countDictionary[currentValue]) {
+    countDictionary[currentValue]++;
+  } else {
+    countDictionary[currentValue] = 1;
   }
+  return countDictionary;
+}, {});
 
-  // Create the new array without occurrences of the most common number
-  const filteredArray = numsArr.filter(num => num !== mostCommonNumber);
+let mostCommonNumber = null;
+let mostOccurrences = 0;
 
-  return filteredArray;
+for (const number in occurrences) {
+  if (occurrences[number] > mostOccurrences) {
+    mostCommonNumber = number;
+    mostOccurrences = occurrences[number];
+  }
 }
+const newArr = [];
+newArr.push(mostCommonNumber);
 
-//Task 3
+/*//Task 3
 const primeNumbers = numsArr => {
   const newNumsArr = [];
   for (const num of numsArr) {
@@ -93,5 +91,5 @@ const greetings = time => {
   } else if (time >= 17 && time <= 23) {
     return "Good evening";
   }
-}
+}*/
 
