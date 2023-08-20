@@ -1,4 +1,4 @@
-/*//1. INTRODUCTION TO JAVASCRIPT
+//1. INTRODUCTION TO JAVASCRIPT
 //Task 1
 const secMinute = 60;
 const secH = secMinute * 60;
@@ -35,33 +35,25 @@ const validateAge = age => {
   } else {
     console.log ("You are too young");
   }
-}*/
+}
+
 //Task 2
-numbers = [4, 5, 2, 1, 6, 5, 3, 5, 2, 5];
+const numbers = [4, 5, 2, 1, 6, 5, 3, 5, 2, 5];
 const sorted = numbers.sort((a,b) => a-b);
 let res = sorted.filter ((x,i) => x === sorted [i+1]);
-const occurrences = res.reduce((countDictionary, currentValue) => {
-  if (countDictionary[currentValue]) {
-    countDictionary[currentValue]++;
-  } else {
-    countDictionary[currentValue] = 1;
-  }
-  return countDictionary;
-}, {});
-
-let mostCommonNumber = null;
-let mostOccurrences = 0;
-
-for (const number in occurrences) {
-  if (occurrences[number] > mostOccurrences) {
-    mostCommonNumber = number;
-    mostOccurrences = occurrences[number];
-  }
+function countOccurrences(res) {
+  return res.reduce((occurrences, element) => {
+    occurrences[element] = (occurrences[element] || 0) + 1;
+    return occurrences;
+  }, {});
 }
-const newArr = [];
-newArr.push(mostCommonNumber);
+const maxKey = Math.max(...Object.keys(occurrences).map(Number));
+const newArray = [];
+newArray.push(maxKey);
+const numberToDelete = maxKey;
+const newArrayWithoutNumber = numbers.filter(number => number !== numberToDelete);
 
-/*//Task 3
+//Task 3
 const primeNumbers = numsArr => {
   const newNumsArr = [];
   for (const num of numsArr) {
@@ -71,6 +63,7 @@ const primeNumbers = numsArr => {
   }
   return newNumsArr;
 }
+
 //Task 4
 const triangleArea = (a, b, c) => {
   if (a <= 0 || b <= 0 || c <= 0 || a + b <= c || a + c <= b || b + c <= a) {
@@ -80,6 +73,7 @@ const triangleArea = (a, b, c) => {
   const triangleArea = Math.sqrt((semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c)));
   return triangleArea.toFixed(3);
 }
+
 //Task 5
 const greetings = time => {
   if (time >= 23 || time <= 5) {
@@ -91,5 +85,5 @@ const greetings = time => {
   } else if (time >= 17 && time <= 23) {
     return "Good evening";
   }
-}*/
+}
 
