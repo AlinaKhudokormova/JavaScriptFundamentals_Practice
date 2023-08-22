@@ -1,4 +1,4 @@
-/*//1. INTRODUCTION TO JAVASCRIPT
+//1. INTRODUCTION TO JAVASCRIPT
 //Task 1
 const secMinute = 60;
 const secH = secMinute * 60;
@@ -37,9 +37,33 @@ const validateAge = age => {
   }
 }
 
-
-
-
+//Task 2
+const filterMostOftenNumber = numsArr => {
+  const forSorted = numsArr.slice();
+  const sorted =  forSorted.sort((a,b) => a-b);
+  const res = sorted.filter ((x,i) => x === sorted [i+1]);
+    if (res.length === 0) {
+      return [];
+    }
+  const count = {};
+  for (let elem of res) {
+      if (count[elem] === undefined) {
+      count[elem] = 1;
+      } else {
+      count[elem]++;
+      }
+  }
+  const maxKey = Object.entries(count).reduce((acc, curr) => acc[1] > curr[1] ? acc : curr)[0]
+  const newArray = [];
+  newArray.push(+maxKey);
+  const numberToDelete = +maxKey;
+  function createArrayWithoutMaxKey(numsArr, numberToDelete) {
+    return numsArr.filter(element => element !== numberToDelete);
+  }
+  const ArrayWithoutMaxKey = createArrayWithoutMaxKey(numsArr, numberToDelete);
+      return ArrayWithoutMaxKey;
+  }
+  
 //Task 3
 const primeNumbers = numsArr => {
   const newNumsArr = [];
@@ -72,49 +96,5 @@ const greetings = time => {
   } else if (time >= 17 && time <= 23) {
     return "Good evening";
   }
-}*/
-
-//Task 2
-const numbers = [4, 5, 2, 1, 6, 5, 3, 5, 2, 5, 8, 8, 8, 8,8,8,8, 9, 9,9,9,9];
-const sorted = numbers.sort((a,b) => a-b);
-const res = sorted.filter ((x,i) => x === sorted [i+1]);
-/*function countOccurrences(res) {
-  return res.reduce((occurrences, element) => {
-    occurrences[element] = (occurrences[element] || 0) + 1;
-    return occurrences;
-  }, {});
 }
-const maxKey = Math.max(...Object.keys(occurrences).map(Number));
-const newArray = [];
-newArray.push(maxKey);
-const numberToDelete = maxKey;
-const newArrayWithoutNumber = numbers.filter(number => number !== numberToDelete);
-*/
-console.log (sorted);
-console.log (res);
-const maxOccurences = res.reduce(previous,current);
-console.log (maxOccurences);
 
-
-
-
-
-
-/*// 1 + 2 + 3 = 6
-const summ = numbers.reduce((result, current) => result + current, 0);
-console.log("Summ:", summ);
-
-// [r]ed + [g]reen + [b]lue = rgb
-const letters = colors.reduce((r, c) => r + c[0], '');
-console.log("Letters:", letters);
-
-
-
-// ----- TASK: find max element in the array
-numbers = [4, 1, 0, -2, 10, 23, 17, 11];
-
-// max:  23 
-// curr: 17
-
-let max = numbers.reduce((max, curr) => curr > max ? curr : max, numbers[0]);
-console.log(max);*/
