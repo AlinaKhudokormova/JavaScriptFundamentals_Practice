@@ -7,28 +7,32 @@ function createArray(start, end) {
   return resultArray;
 }
 createArray();
+let arr = createArray(2, 9); //cheking
+console.log(arr); //cheking
 
 //Task 2
 function numbers(a, b) {
-for (let i = a; i < b; ++i) {
-  for (let k = a; k <= i; ++k) {
-    console.log(i);
+  let allNumbers = '';
+  for (let i = a; i <= b; ++i) {
+    for (let k = 0; k < i; ++k) {
+      allNumbers += i + ' ';
+    }
   }
-  }
+  console.log(allNumbers);
 }
-numbers();
+numbers(1, 8); //cheking
 
 //Task 3
 function randArray(k) {
   const resultArrayRandom = [];
   for (let i = 0; i < k; ++i) {
-    const randomNumbers = Math.round(Math.random() * 500)+1;
+    const randomNumbers = Math.round(Math.random() * 500) + 1;
     resultArrayRandom.push(randomNumbers);
   }
   return resultArrayRandom;
 }
 randArray();
+console.log(randArray(6)); //cheking
 
 //Task 4
-
 
