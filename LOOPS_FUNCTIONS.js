@@ -1,4 +1,4 @@
-/*//Task 1
+//Task 1
 function createArray(start, end) {
   const resultArray = [];
   for (let i = start; i <= end; ++i) {
@@ -91,7 +91,7 @@ function calc(a, b, op) {
 }
 //cheking
 console.log(calc(10, 3, 3));
-*/
+
 //Task 7
 function findUnique(arr) {
   const uniqueSet = new Set();
