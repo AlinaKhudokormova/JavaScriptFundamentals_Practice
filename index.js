@@ -1,26 +1,25 @@
-function checkAge() {
-  const age = prompt("Type your age");
-  if (age < 18 || age > 70) {
-    throw new RangeError("Please check your information about your age");
+class MonthException {
+  constructor(message) {
+    this.name = "MonthException";
+    this.message = message;
   }
-  if (age === "") {
-    throw new Error("The field is empty!");
+}
+function showMonthName(month) {
+  month = month - 1;
+  let months = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
+  if (months[month] !== undefined) {
+    return months[month];
+  } else {
+    throw new MonthException("Incorrect month number");
   }
-  if (typeof age === isNaN) {
-    throw new TypeError("You have entered non-numeric value")
-  }
-  const status = prompt("Choose your status:admin, moderator, user");
-  if (status !== "admin" && status !== "moderator" && status !== "user") {
-    throw new EvalError("Please check your information about your status");
-  }
-  const name = prompt("Type your name");
-  if (status === "" || name === "" || age === "") {
-    throw new Error("The field is empty!");
-  }
-  return alert("You can watch a movie!")
 }
 try {
-  checkAge()
-} catch (error) {
-  console.log(error.message);
+  showMonthName(13);
+} catch (e) {
+  alert (e instanceof Error);
+  alert (e.message);
+  alert (e.name);
 }
